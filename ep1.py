@@ -85,7 +85,7 @@ def main():
             print ('As opções disponiveis são: ')
             print ()
             for k,v in opcoes.items():
-                print ('-{}'.format(k))
+                print ('-{0}: {1}'.format(k,v))
             print ()
             escolha =input("Digite a sua opção: ")
 
