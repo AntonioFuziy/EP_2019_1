@@ -20,8 +20,7 @@ def carregar_cenarios():
             "descricao": "Voce chegou na biblioteca. Shhhhhh!!!",
             "opcoes": {
                 "saguao": "Tomar o elevador para o saguao de entrada",
-                "fab lab": "Falar com o professor",
-                "sala do professor": "Tomar o elevador para a sala do professor"
+                "armario": "Você tem a chance de ganhar o jogo"
             }
         },
         "fab lab": {
@@ -35,16 +34,18 @@ def carregar_cenarios():
         },
         "armario": {
             "titulo": " Voce chegou ao corredor dos armários",
-            "descricao": "Voce esta na biblioteca",
+            "descricao": "",
             "opcoes": {
-                "saguao": "Voltar para o saguao de entrada"
+                "biblioteca": "Voltar para a biblioteca",
+                "win":"você ganhou o jogo"
             }
         },
         "sala do professor": {
-            "titulo": "Caverna da tranquilidade",
-            "descricao": "Voce esta na biblioteca",
+            "titulo": "Você chegou na sala do Rei Toshi. Ajoelhe-se",
+            "descricao": "Você precisa provar seu valor e falar a senha passada durante o jogo"
+                         "Só assim você mudará a data de entrega do EP",
             "opcoes": {
-                "saguao": "Tomar o elevador para o saguao de entrada",
+                "saguao": "Ir para o saguao de entrada",
                 "biblioteca": "Ir para a biblioteca",
                 "fab lab": "Falar com o professor"
             }
