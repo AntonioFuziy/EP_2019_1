@@ -84,14 +84,15 @@ def main():
             print ()
             for k,v in opcoes.items():
                 print ('-{0}: {1}'.format(k,v))
-            print ()
             escolha =input("Digite a sua opção: ")
-
+            while escolha not in opcoes:
+                if escolha!= opcoes:
+                    escolha=input('Não existe essa opção. Escreva uma nova: ')
             if escolha in opcoes:
                 nome_cenario_atual = escolha
-            else:
-                print("Sua indecisão foi sua ruína!")
-                game_over = True
+        
+                    
+                
 
     print("Você morreu!")
 
