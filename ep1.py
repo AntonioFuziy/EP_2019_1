@@ -64,18 +64,17 @@ def main():
         print (cenario_atual['descricao'])
         print ()
 
-        # Aluno A: substitua este comentário pelo código para imprimir 
-        # o cenário atual.
-
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
         else:
-
-            # Aluno B: substitua este comentário e a linha abaixo pelo código
-            # para pedir a escolha do usuário.
-            escolha = ""
+            print ('As opções disponiveis são: ')
+            print ()
+            for k,v in opcoes.items():
+                print ('-{}'.format(k))
+            print ()
+            escolha =input("Digite a sua opção: ")
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
