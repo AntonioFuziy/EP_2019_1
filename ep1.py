@@ -37,7 +37,6 @@ def carregar_cenarios():
             "descricao": "",
             "opcoes": {
                 "biblioteca": "Voltar para a biblioteca",
-                "win":"você ganhou o jogo"
             }
         },
         "sala do professor": {
@@ -46,8 +45,6 @@ def carregar_cenarios():
                          "Só assim você mudará a data de entrega do EP",
             "opcoes": {
                 "saguao": "Ir para o saguao de entrada",
-                "biblioteca": "Ir para a biblioteca",
-                "fab lab": "Falar com o professor"
             }
         }
     }
