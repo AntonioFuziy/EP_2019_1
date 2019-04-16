@@ -6,38 +6,51 @@
 
 def carregar_cenarios():
     cenarios = {
-        "inicio": {
+        "saguao": {
             "titulo": "Saguao do perigo",
             "descricao": "Voce esta no saguao de entrada do insper",
             "opcoes": {
-                "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
+                "sala do professor": "Tomar o elevador para a sala do professor",
+                "biblioteca": "Ir para a biblioteca",
+                "fab lab" : "Ir para o fab lab de escada"
             }
-        },
-        "andar professor": {
-            "titulo": "Andar do desespero",
-            "descricao": "Voce chegou ao andar da sala do seu professor",
-            "opcoes": {
-                "inicio": "Tomar o elevador para o saguao de entrada",
-                "professor": "Falar com o professor"
-            }
-        },
-        "professor": {
-            "titulo": "O monstro do Python",
-            "descricao": "Voce foi pedir para o professor adiar o EP. "
-                         "O professor revelou que é um monstro disfarçado "
-                         "e devorou sua alma.",
-            "opcoes": {}
         },
         "biblioteca": {
+            "titulo": "Andar Sagrado",
+            "descricao": "Voce chegou na biblioteca. Shhhhhh!!!",
+            "opcoes": {
+                "saguao": "Tomar o elevador para o saguao de entrada",
+                "fab lab": "Falar com o professor",
+                "sala do professor": "Tomar o elevador para a sala do professor"
+            }
+        },
+        "fab lab": {
+            "titulo": "O monstro te aguarda",
+            "descricao": "Você chegou ao fab lab"
+                         "O professor revelou que é um monstro disfarçado "
+                         "e devorou sua alma.",
+            "opcoes": {
+                    "saguao": "Tomar o elevador para o saguao de entrada",
+            }
+        },
+        "armario": {
+            "titulo": " Voce chegou ao corredor dos armários",
+            "descricao": "Voce esta na biblioteca",
+            "opcoes": {
+                "saguao": "Voltar para o saguao de entrada"
+            }
+        },
+        "sala do professor": {
             "titulo": "Caverna da tranquilidade",
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
-                "inicio": "Voltar para o saguao de entrada"
+                "saguao": "Tomar o elevador para o saguao de entrada",
+                "biblioteca": "Ir para a biblioteca",
+                "fab lab": "Falar com o professor"
             }
         }
     }
-    nome_cenario_atual = "inicio"
+    nome_cenario_atual = "saguao"
     return cenarios, nome_cenario_atual
 
 
