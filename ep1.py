@@ -144,7 +144,7 @@ def main():
                 print('-'*len(cenarios['sala do professor']['titulo']))
                 print(cenarios['sala do professor']['descricao'])
                 print()
-                print('Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei para concluir o seu objetivo! ')
+                print('Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei para concluir o seu objetivo!')
                 
 #Teste vergs ra
     print("Você ganhou!")
