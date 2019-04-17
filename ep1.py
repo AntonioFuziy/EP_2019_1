@@ -1,4 +1,4 @@
-# EP 2019-1: Escape Insper
+ # EP 2019-1: Escape Insper
 #
 # Alunos: 
 # - aluno A: Fulano da Silva, fulanos@insper.edu.br
@@ -7,10 +7,10 @@ import random
 def carregar_cenarios():
     cenarios = {
         "saguao": {
-            "titulo": "Saguao do perigo",
-            "descricao": "Voce esta no saguao de entrada do insper",
+            "titulo": "Saguao do perigo!",
+            "descricao": "Voce esta no saguao de entrada do insper.",
             "opcoes": {
-                "sala do professor": "Tomar o elevador para a sala do professor",
+                "sala do professor": "Tomar o elevador para a sala do professor.",
                 "biblioteca": "Ir para a biblioteca.",
                 "fab lab" : "Ir para o fab lab de escada."
             }
@@ -19,8 +19,8 @@ def carregar_cenarios():
             "titulo": "Andar Sagrado",
             "descricao": "Voce chegou na biblioteca. Shhhhhh!!!",
             "opcoes": {
-                "saguao": "Tomar o elevador para o saguao de entrada",
-                "armario": "Você tem a chance de ganhar o jogo"
+                "saguao": "Tomar o elevador para o saguao de entrada.",
+                "armario": "Você tem a chance de ganhar o jogo!"
             }
         },
         "fab lab": {
