@@ -146,7 +146,7 @@ def main():
                 print()
                 print('Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei para concluir o seu objetivo! ')
                 
-#Teste vergs
+#Teste vergs ra
     print("Você ganhou!")
 
 #
