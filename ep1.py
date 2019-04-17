@@ -108,7 +108,7 @@ def main():
                 print ( 'Se você recusar essa chance, você será teleportado para o saguão!!!')
 
                 if sorteio == 'Sim':
-                    numero_sorteio = random.randint(0, 1)
+                    numero_sorteio = random.randint(0, 10)
                     numero_chute = int(input('Eai??? Qual o seu chute ?: '))
 
                     if numero_chute == numero_sorteio:
@@ -117,7 +117,6 @@ def main():
                         cenario_atual="armario"
                     else:
                         print('''Você errou o número sorteado, e voltou para o saguão inicial''')
-
 
                 else:
                     print('''Que pena, você desistiu do sorteio. Mas agora você têm
