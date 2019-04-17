@@ -131,9 +131,9 @@ def main():
                 print(cenarios['armario']['titulo'])
                 print('-' * len(cenarios['armario']['titulo']))
                 print(cenarios['armario']['descricao'])
-                a=input('Qual a sua resposta: ')
+                resp=input('Qual a sua resposta: ')
                 print ()
-                if a=='42':
+                if resp=='42':
                     game_over=True
                 else:
                     print ('Você não acertou, e morreu. Volte para o saguão inicial e reinicie a sua jornada')
