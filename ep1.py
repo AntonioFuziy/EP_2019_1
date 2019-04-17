@@ -11,8 +11,8 @@ def carregar_cenarios():
             "descricao": "Voce esta no saguao de entrada do insper",
             "opcoes": {
                 "sala do professor": "Tomar o elevador para a sala do professor",
-                "biblioteca": "Ir para a biblioteca",
-                "fab lab" : "Ir para o fab lab de escada"
+                "biblioteca": "Ir para a biblioteca.",
+                "fab lab" : "Ir para o fab lab de escada."
             }
         },
         "biblioteca": {
@@ -33,7 +33,7 @@ def carregar_cenarios():
             }
         },
         "armario": {
-            "titulo": " Voce chegou ao corredor dos armários",
+            "titulo": " Você chegou ao corredor dos armários",
             "descricao": "Para adiar o EP você deve acertar esse enigma. "
                          "Qual a resposta para a vida, o universo e tudo mais??? "
                          "Se não souber a resposta volte à biblioteca e continue a sua jornada.",
@@ -42,9 +42,9 @@ def carregar_cenarios():
             }
         },
         "sala do professor": {
-            "titulo": "Você chegou na sala do Rei Toshi. Ajoelhe-se",
-            "descricao": "Você precisa provar seu valor e falar a senha passada durante o jogo"
-                         "Só assim você mudará a data de entrega do EP",
+            "titulo": "Você chegou na sala do Rei Toshi. Ajoelhe-se!",
+            "descricao": "Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei a concluir o seu objetivo!"
+                         " Só assim você mudará a data de entrega do EP!",
             "opcoes": {
                 "saguao": "Ir para o saguao de entrada",
             }
@@ -139,7 +139,13 @@ def main():
                     print ('Você não acertou, e morreu. Volte para o saguão inicial e reinicie a sua jornada')
                     print ()
 
-
+            if escolha=='sala do professor':
+                print(cenarios['sala do professor']['titulo'])
+                print('-'*len(cenarios['sala do professor']['titulo']))
+                print(cenarios['sala do professor']['descricao'])
+                print()
+                print('Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei para concluir o seu objetivo! ')
+                
 #Teste vergs
     print("Você ganhou!")
 
