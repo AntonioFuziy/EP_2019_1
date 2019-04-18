@@ -55,6 +55,13 @@ def carregar_cenarios():
 
 
 def main():
+    lista_inventario=[]
+    ataque_homem=5
+    ataque_monstro=10
+    hp_monstro=120
+    hp_homem=100
+    cont=0
+
     print("Na hora do sufoco!")
     print("------------------")
     print()
@@ -126,12 +133,14 @@ def main():
             while escolha not in opcoes:
                 if escolha!= opcoes:
                     escolha=input('Não existe essa opção. Escreva uma nova: ')
+
             if cenario_atual=='armario':
                 print(cenarios['armario']['titulo'])
                 print('-' * len(cenarios['armario']['titulo']))
                 print(cenarios['armario']['descricao'])
                 resp=input('Qual a sua resposta: ')
-                print ()
+                print()
+
                 if resp=='42':
                     game_over=True
                 else:
@@ -144,11 +153,48 @@ def main():
                 print(cenarios['sala do professor']['descricao'])
                 print()
                 print('Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei para concluir o seu objetivo!')
-                
-#Teste vergs ra
+                senha=input('Qual a senha?: ')
+
+                if senha == '000':
+                    print('Parabéns, você acertou a senha. Agora foi adicionada a chave ao seu inverntário.')
+                    print('Sua recompença além da chave é uma arma a qual você pode escolher.')
+                    arma=input('Escolha uma dessas armas: [Lâmina do infinito] | [Excalibur ] | [Katana]')
+                    lista_inventario.append(arma)
+                    ataque_homem=15
+                else:
+                    print('Que pena você errou a senha.')
+                    print('Procure a senha nas salas!!!')
+                    escolha = 'saguao'
+            if escolha == 'fab lab':
+                print(cenarios['fab lab']['titulo'])
+                print('-'*len(cenarios['fab lab']['titulo']))
+                print(cenarios['fab lab']['descricao'])
+                print()
+
+                if cont==0:
+                    print('Você agora terá que lutar contra o monstro do fab lab, ele é temido por suas armas de acrílico, feitas na cortadora a laser')
+                    acao=input('O monstro corre em direção a você, o que você faz?  [correr do monstro] | [bater no monstro com a arma]')
+
+                    if acao == 'Correr do monstro':
+                        escolha = 'saguao'
+                    elif acao == 'Bater no monstro com a arma':
+                        while hp_monstro!=0:
+                            hp_monstro-=ataque_homem
+                            hp_homem-=ataque_monstro
+                        print('PARABÉNSSS, você conseguiu vencer o monstro do fab lab!!!')
+                        print()
+                        print('Agora, você tem a chave para o elevador da biblioteca, volte a ela e vá até ele para chegar aos armários')
+                        cont+=1
+                        escolha = 'saguao'
+                    else:
+                        acao = input('O monstro corre em direção a você, o que você faz?  [Correr do monstro] | [Bater no monstro com a espada]')
+
+                if cont > 0:
+                    print('Você já lutou com o monstro e já obteve a chave do elevador, vá até lá, senão não conseguirá adiar seu EP, ')
+                    print('Você foi teleportado de volta ao saguão.')
+                    escolha = 'saguao'
     print("Você ganhou!")
 
-#
 # Programa principal.
 if __name__ == "__main__":
     main()
