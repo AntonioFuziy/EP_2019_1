@@ -101,35 +101,31 @@ def main():
                 print(cenarios['biblioteca']['descricao'])
 
                 #escolha = input ("Digite a sua opção: ")
-                print('''Aqui se encontra um teleporte que te levara aos armários,
-                        você têm duas opções:
-                        1°) A primeira é você participar de um jogo em que será 
-                        sorteado um número de 0 a 10, e você deve acerta-lo com
-                        apenas uma chance. Caso você não acerte, você será guiado
-                        a outra opção obrigatoriamente.
-                        2°) A segunda opção é você achar a chave secreta em algum
-                        local do Insper, essa chave chega abrirá o elevador. ''')
+                print('Aqui se encontra um teleporte que te levara aos armários, você têm duas opções:')
+                print('1°) A primeira é você participar de um jogo em que será sorteado um número de 0 a 10, e você deve acerta-lo com apenas uma chance. Caso você não acerte, você será guiado a outra opção obrigatoriamente.')
+                print('2°) A segunda opção é você achar a chave secreta em algum local do Insper, essa chave chega abrirá o elevador. ')
 
-                sorteio = input('''Pois então, vamos de sorteio ou prefere desistir
-                da tentativa ? (Sim/Não): ''')
+                sorteio = input('Pois então, vamos de sorteio ou prefere desistir da tentativa ? (Sim/Não): ')
                 print ( 'Se você recusar essa chance, você será teleportado para o saguão!!!')
+                while True:
+                    if sorteio == 'Sim':
+                        numero_sorteio = random.randint(0, 10)
+                        numero_chute = int(input('Eai??? Qual o seu chute ?: '))
 
-                if sorteio == 'Sim':
-                    numero_sorteio = random.randint(0, 10)
-                    numero_chute = int(input('Eai??? Qual o seu chute ?: '))
-
-                    if numero_chute == numero_sorteio:
-                        print ('Você ganhou e foi teleportado para a sala dos armarios')
-                        print ()
-                        cenario_atual="armario"
+                        if numero_chute == numero_sorteio:
+                            print ('Você ganhou e foi teleportado para a sala dos armarios')
+                            print ()
+                            cenario_atual="armario"
+                            break
+                        else:
+                            print('''Você errou o número sorteado, e voltou para o saguão inicial''')
+                            break
+                    elif sorteio== 'Não':
+                        print('Que pena, você desistiu do sorteio. Mas agora você têm uma nova missão para adiar seu EP, sem mais enrolações, agora ache a chave do elevador. Boa Sorte!!!')
+                        break
                     else:
-                        print('''Você errou o número sorteado, e voltou para o saguão inicial''')
-
-                else:
-                    print('''Que pena, você desistiu do sorteio. Mas agora você têm
-                        uma nova missão para adiar seu EP, sem mais enrolações, agora
-                        ache a chave do elevador. Boa Sorte!!!''')
-
+                        print('Não existe essa opção!')
+                        sorteio=input('Você aceita particiar do sorteio? (Sim/Não)')
             while escolha not in opcoes:
                 if escolha!= opcoes:
                     escolha=input('Não existe essa opção. Escreva uma nova: ')
@@ -201,7 +197,7 @@ def main():
                     print('Você acabou de lutar com o monstro e obteve a chave do elevador, vá até lá, senão não conseguirá adiar seu EP, ')
                     print('Você foi teleportado de volta ao saguão.')
                     escolha = 'saguao'
-                                
+                                                 
                             
                     
 
