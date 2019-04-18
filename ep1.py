@@ -7,7 +7,7 @@ import random
 def carregar_cenarios():
     cenarios = {
         "saguao": {
-            "titulo": "Saguao do perigo!",
+            "titulo": "Saguao do per1go!",
             "descricao": "Voce esta no saguao de entrada do insper.",
             "opcoes": {
                 "sala do professor": "Tomar o elevador para a sala do professor.",
@@ -43,7 +43,7 @@ def carregar_cenarios():
         },
         "sala do professor": {
             "titulo": "Você chegou na sala do Rei Toshi. Ajoelhe-se!",
-            "descricao": "Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei a concluir o seu objetivo!"
+            "descricao": "Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei a concluir o seu obj3tivo!"
                          " Só assim você mudará a data de entrega do EP!",
             "opcoes": {
                 "saguao": "Ir para o saguao de entrada",
@@ -69,7 +69,7 @@ def main():
         "embaçar em geral. Amanhã eu começo o EP. Mas isso não deu certo...")
     print()
     print("É o dia de entregar o EP e você está muuuuito atrasado! Você está "
-        "na entrada do Insper, e quer procurar o professor para pedir um "
+        "na entrada do Insper, e quer procurar o pr0fessor para pedir um "
         "adiamento do EP (boa sorte...)")
     print()
 
@@ -153,9 +153,9 @@ def main():
                 print(cenarios['sala do professor']['descricao'])
                 print()
                 print('Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei para concluir o seu objetivo!')
-                senha=input('Qual a senha?: ')
+                senha=input('Qual a senha? Obs: A senha está espalhada ao longo do diálogo do jogo!!!: ')
 
-                if senha == '000':
+                if senha == '103':
                     print('Parabéns, você acertou a senha. Agora foi adicionada a chave ao seu inverntário.')
                     print('Sua recompença além da chave é uma arma a qual você pode escolher.')
                     arma=input('Escolha uma dessas armas: [Lâmina do infinito] | [Excalibur ] | [Katana]')
@@ -173,26 +173,39 @@ def main():
 
                 if cont==0:
                     print('Você agora terá que lutar contra o monstro do fab lab, ele é temido por suas armas de acrílico, feitas na cortadora a laser')
-                    acao=input('O monstro corre em direção a você, o que você faz?  [correr do monstro] | [bater no monstro com a arma]')
+                    acao=input('O monstro corre em direção a você, o que você faz?  [correr do monstro] | [bater no monstro ]')
 
-                    if acao == 'Correr do monstro':
+                    if acao == 'correr do monstro':
+                        print('Você fugiu para o saguão!')
                         escolha = 'saguao'
-                    elif acao == 'Bater no monstro com a arma':
+                    elif acao == 'bater no monstro':
                         while hp_monstro!=0:
                             hp_monstro-=ataque_homem
                             hp_homem-=ataque_monstro
-                        print('PARABÉNSSS, você conseguiu vencer o monstro do fab lab!!!')
-                        print()
-                        print('Agora, você tem a chave para o elevador da biblioteca, volte a ela e vá até ele para chegar aos armários')
-                        cont+=1
-                        escolha = 'saguao'
+                        if hp_homem<=0:
+                            print('Você morreu!!!')
+                            print('Tente aumentar o seu dano ou/e sua vida! ')
+                            for item in lista_inventario:
+                                del lista_inventario[item]
+                            escolha = 'saguao'
+                            break
+                        else:
+                            print('PARABÉNSSS, você acabou de vencer o monstro do fab lab!!!')
+                            print()
+                                
+                            cont+=1
                     else:
+                        print('essa opcao nao existe')
                         acao = input('O monstro corre em direção a você, o que você faz?  [Correr do monstro] | [Bater no monstro com a espada]')
-
                 if cont > 0:
-                    print('Você já lutou com o monstro e já obteve a chave do elevador, vá até lá, senão não conseguirá adiar seu EP, ')
+                    print('Você acabou de lutar com o monstro e obteve a chave do elevador, vá até lá, senão não conseguirá adiar seu EP, ')
                     print('Você foi teleportado de volta ao saguão.')
                     escolha = 'saguao'
+                                
+                            
+                    
+
+                 
     print("Você ganhou!")
 
 # Programa principal.
