@@ -104,28 +104,39 @@ def main():
                 print('Aqui se encontra um teleporte que te levara aos armários, você têm duas opções:')
                 print('1°) A primeira é você participar de um jogo em que será sorteado um número de 0 a 10, e você deve acerta-lo com apenas uma chance. Caso você não acerte, você será guiado a outra opção obrigatoriamente.')
                 print('2°) A segunda opção é você achar a chave secreta em algum local do Insper, essa chave chega abrirá o elevador. ')
-
-                sorteio = input('Pois então, vamos de sorteio ou prefere desistir da tentativa ? (Sim/Não): ')
-                print ( 'Se você recusar essa chance, você será teleportado para o saguão!!!')
-                while True:
-                    if sorteio == 'Sim':
-                        numero_sorteio = random.randint(0, 10)
-                        numero_chute = int(input('Eai??? Qual o seu chute ?: '))
-
-                        if numero_chute == numero_sorteio:
-                            print ('Você ganhou e foi teleportado para a sala dos armarios')
-                            print ()
-                            cenario_atual="armario"
-                            break
-                        else:
-                            print('''Você errou o número sorteado, e voltou para o saguão inicial''')
-                            break
-                    elif sorteio== 'Não':
-                        print('Que pena, você desistiu do sorteio. Mas agora você têm uma nova missão para adiar seu EP, sem mais enrolações, agora ache a chave do elevador. Boa Sorte!!!')
-                        break
+                opc=input('Qual das opções deseja seguir? 1 representa a primeira, 2 representa a segunda: ')
+                if opc=='2':
+                    if 'chave' in lista_inventario:
+                        print('O elevador abre, você entra. Ele te leva até o céu dos programadores! Chegando lá você encontra Rei Toshi!')
+                        print('Rei Toshi: "Você provou seu valor! Você é um programador de verdade! Não há necessidade de fazer o EP!')
+                        print('Bem vindo ao mundo superior!')
+                        game_over=True
                     else:
-                        print('Não existe essa opção!')
-                        sorteio=input('Você aceita particiar do sorteio? (Sim/Não)')
+                        print('Você não contém a chave para o elevador! Você foi teleportado para o Saguão')
+                        escolha='saguao'
+                elif opc=='1':
+                    sorteio = input('Pois então, vamos de sorteio ou prefere desistir da tentativa ? (Sim/Não): ')
+                    print ( 'Se você recusar essa chance, você será teleportado para o saguão!!!')
+                    while True:
+                        if sorteio == 'Sim':
+                            numero_sorteio = random.randint(0, 10)
+                            numero_chute = int(input('Eai??? Qual o seu chute ?: '))
+
+                            if numero_chute == numero_sorteio:
+                                print ('Você ganhou e foi teleportado para a sala dos armarios')
+                                print ()
+                                cenario_atual="armario"
+                                break
+                            else:
+                                print('''Você errou o número sorteado, e voltou para o saguão inicial''')
+                                break
+                            elif sorteio== 'Não':
+                                print('Que pena, você desistiu do sorteio. Mas agora você têm uma nova missão para adiar seu EP, sem mais enrolações, agora ache a chave do elevador. Boa Sorte!!!')
+                                break
+                            else:
+                                print('Não existe essa opção!')
+                                sorteio=input('Você aceita particiar do sorteio? (Sim/Não)')
+                    else:
             while escolha not in opcoes:
                 if escolha!= opcoes:
                     escolha=input('Não existe essa opção. Escreva uma nova: ')
