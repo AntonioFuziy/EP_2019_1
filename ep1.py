@@ -3,37 +3,51 @@
 # Alunos: 
 # - aluno A: Fulano da Silva, fulanos@insper.edu.br
 # - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+
+import pygame
+pygame.init()
+pygame.display.set_mode((200,100))
+pygame.mixer.music.load('Musica.mp3')
+pygame.mixer.music.play(1)
+
 import random
 def carregar_cenarios():
+
+ #   with open('cenario_jogo.py','r') as arquivo:
+
+ #       conteudo = arquivo.read()
+#
+   # cenarios = json.loads(conteudo)
+
     cenarios = {
         "saguao": {
-            "titulo": "Saguao do per1go!",
-            "descricao": "Voce esta no saguao de entrada do insper.",
+            "titulo": "Saguao do per1go! ",
+            "descricao": "Voce esta no saguao de entrada do Insper. ",
             "opcoes": {
-                "sala do professor": "Tomar o elevador para a sala do professor.",
-                "biblioteca": "Ir para a biblioteca.",
-                "fab lab" : "Ir para o fab lab de escada."
+                "sala do professor": "Tomar o elevador para a sala do professor. ",
+                "biblioteca": "Ir para a biblioteca. ",
+                "fab lab" : "Ir para o fab lab de escada. "
             }
         },
         "biblioteca": {
-            "titulo": "Andar Sagrado",
-            "descricao": "Voce chegou na biblioteca. Shhhhhh!!!",
+            "titulo": "Andar Sagrado ",
+            "descricao": "Voce chegou na biblioteca. Shhhhhh!!! ",
             "opcoes": {
-                "saguao": "Tomar o elevador para o saguao de entrada.",
-                "armario": "Você tem a chance de ganhar o jogo!"
+                "saguao": "Tomar o elevador para o saguao de entrada. ",
+                "armario": "Você tem a chance de ganhar o jogo! "
             }
         },
         "fab lab": {
-            "titulo": "O monstro te aguarda",
-            "descricao": "Você chegou ao fab lab"
+            "titulo": "O monstro te aguarda ",
+            "descricao": "Você chegou ao fab lab "
                          "O professor revelou que é um monstro disfarçado "
-                         "e devorou sua alma.",
+                         "e devorou sua alma. ",
             "opcoes": {
-                    "saguao": "Tomar o elevador para o saguao de entrada",
+                    "saguao": "Tomar o elevador para o saguao de entrada ",
             }
         },
         "armario": {
-            "titulo": " Você chegou ao corredor dos armários",
+            "titulo": " Você chegou ao corredor dos armários ",
             "descricao": "Para adiar o EP você deve acertar esse enigma. "
                          "Qual a resposta para a vida, o universo e tudo mais??? "
                          "Se não souber a resposta volte à biblioteca e continue a sua jornada.",
@@ -42,18 +56,21 @@ def carregar_cenarios():
             }
         },
         "sala do professor": {
-            "titulo": "Você chegou na sala do Rei Toshi. Ajoelhe-se!",
-            "descricao": "Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei a concluir o seu obj3tivo!"
-                         " Só assim você mudará a data de entrega do EP!",
+            "titulo": "Você chegou na sala do Rei Toshi. Ajoelhe-se! ",
+            "descricao": "Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei a concluir o seu obj3tivo! "
+                         " Só assim você mudará a data de entrega do EP! ",
             "opcoes": {
-                "saguao": "Ir para o saguao de entrada",
+                "saguao": "Ir para o saguao de entrada ",
             }
         }
     }
-    nome_cenario_atual = "saguao"
+
+    nome_cenario_atual="saguao"
+
     return cenarios, nome_cenario_atual
 
-
+def linha():
+    print('-'*25)
 def main():
     lista_inventario=[]
     ataque_homem=5
@@ -103,9 +120,9 @@ def main():
                 #escolha = input ("Digite a sua opção: ")
                 print('Aqui se encontra um teleporte que te levara aos armários, você têm duas opções:')
                 print('1°) A primeira é você participar de um jogo em que será sorteado um número de 0 a 10, e você deve acerta-lo com apenas uma chance. Caso você não acerte, você será guiado a outra opção obrigatoriamente.')
-                print('2°) A segunda opção é você achar a chave secreta em algum local do Insper, essa chave chega abrirá o elevador. ')
-                opc=input('Qual das opções deseja seguir? 1 representa a primeira, 2 representa a segunda: ')
-                if opc=='2':
+                print('2°) A segunda opção é você utilizar a chave secreta que você obteve, essa chave abrirá o elevador. ')
+                opc = input('Qual das opções deseja seguir? 1 representa a primeira, 2 representa a segunda: ')
+                if opc == '2':
                     if 'chave' in lista_inventario:
                         print('O elevador abre, você entra. Ele te leva até o céu dos programadores! Chegando lá você encontra Rei Toshi!')
                         print('Rei Toshi: "Você provou seu valor! Você é um programador de verdade! Não há necessidade de fazer o EP!')
@@ -114,29 +131,34 @@ def main():
                     else:
                         print('Você não contém a chave para o elevador! Você foi teleportado para o Saguão')
                         escolha='saguao'
-                elif opc=='1':
-                    sorteio = input('Pois então, vamos de sorteio ou prefere desistir da tentativa ? (Sim/Não): ')
+                elif opc == '1':
+                    sorteio = input('Pois então, vamos começar o sorteio ou prefere desistir da tentativa ? (Sim/Não): ')
                     print ( 'Se você recusar essa chance, você será teleportado para o saguão!!!')
                     while True:
                         if sorteio == 'Sim':
-                            numero_sorteio = random.randint(0, 10)
+                            numero_sorteio = random.randint(0, 1)
+                            linha()
                             numero_chute = int(input('Eai??? Qual o seu chute ?: '))
 
                             if numero_chute == numero_sorteio:
                                 print ('Você ganhou e foi teleportado para a sala dos armarios')
-                                print ()
+                                linha()
                                 cenario_atual="armario"
                                 break
                             else:
                                 print('''Você errou o número sorteado, e voltou para o saguão inicial''')
                                 break
-                            elif sorteio== 'Não':
-                                print('Que pena, você desistiu do sorteio. Mas agora você têm uma nova missão para adiar seu EP, sem mais enrolações, agora ache a chave do elevador. Boa Sorte!!!')
-                                break
-                            else:
-                                print('Não existe essa opção!')
-                                sorteio=input('Você aceita particiar do sorteio? (Sim/Não)')
-                    else:
+                        elif sorteio == 'Não':
+                            print('Que pena, você desistiu do sorteio. Mas agora você têm uma nova missão para adiar seu EP, sem mais enrolações, agora ache a chave do elevador. Boa Sorte!!!')
+                            break
+                        else:
+                            print('Não existe essa opção!')
+                            linha()
+                            sorteio=input('Você aceita particiar do sorteio? (Sim/Não)')
+                else:
+                    print('Não existe essa opção!')
+                    linha()
+                    opc = input('Qual das opções deseja seguir? 1 representa a primeira, 2 representa a segunda: ')
             while escolha not in opcoes:
                 if escolha!= opcoes:
                     escolha=input('Não existe essa opção. Escreva uma nova: ')
@@ -189,6 +211,7 @@ def main():
                         while hp_monstro!=0:
                             hp_monstro-=ataque_homem
                             hp_homem-=ataque_monstro
+                        lista_inventario.append('chave')
                         if hp_homem<=0:
                             print('Você morreu!!!')
                             print('Tente aumentar o seu dano ou/e sua vida! ')
