@@ -1,8 +1,9 @@
  # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - aluno A: Fulano da Silva, fulanos@insper.edu.br
-# - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+# - aluno A: Ramon Menegatto Gonzalez, ramonmg@al.insper.edu.br
+# - aluno B: Antonio Vieira Fuziy, antoniovf@al.insper.edu.br
+# - aluno C: Victor Vergara Arcoverde de Albuquerque Cavalacanti, victorvaac@al.insper.edu.br
 
 import pygame
 pygame.init()
@@ -11,6 +12,7 @@ pygame.mixer.music.load('Musica.mp3')
 pygame.mixer.music.play(1)
 
 import random
+from time import sleep
 def carregar_cenarios():
 
  #   with open('cenario_jogo.py','r') as arquivo:
@@ -20,9 +22,9 @@ def carregar_cenarios():
    # cenarios = json.loads(conteudo)
 
     cenarios = {
-        "saguao": {
-            "titulo": "Saguao do per1go! ",
-            "descricao": "Voce esta no saguao de entrada do Insper. ",
+        "Saguão": {
+            "titulo": "Saguão do per1go! ",
+            "descricao": "Voce esta no saguão de entrada do Insper. ",
             "opcoes": {
                 "sala do professor": "Tomar o elevador para a sala do professor. ",
                 "biblioteca": "Ir para a biblioteca. ",
@@ -33,8 +35,7 @@ def carregar_cenarios():
             "titulo": "Andar Sagrado ",
             "descricao": "Voce chegou na biblioteca. Shhhhhh!!! ",
             "opcoes": {
-                "saguao": "Tomar o elevador para o saguao de entrada. ",
-                "armario": "Você tem a chance de ganhar o jogo! "
+            
             }
         },
         "fab lab": {
@@ -43,16 +44,16 @@ def carregar_cenarios():
                          "O professor revelou que é um monstro disfarçado "
                          "e devorou sua alma. ",
             "opcoes": {
-                    "saguao": "Tomar o elevador para o saguao de entrada ",
+                   
             }
         },
-        "armario": {
+        "armário": {
             "titulo": " Você chegou ao corredor dos armários ",
             "descricao": "Para adiar o EP você deve acertar esse enigma. "
                          "Qual a resposta para a vida, o universo e tudo mais??? "
                          "Se não souber a resposta volte à biblioteca e continue a sua jornada.",
             "opcoes": {
-                "biblioteca": "Voltar para a biblioteca",
+                
             }
         },
         "sala do professor": {
@@ -60,12 +61,12 @@ def carregar_cenarios():
             "descricao": "Rei Toshi: Para adiar o EP é necessário que me prove o seu valor! Me diga a senha que te ajudarei a concluir o seu obj3tivo! "
                          " Só assim você mudará a data de entrega do EP! ",
             "opcoes": {
-                "saguao": "Ir para o saguao de entrada ",
+                
             }
         }
     }
 
-    nome_cenario_atual="saguao"
+    nome_cenario_atual="Saguão"
 
     return cenarios, nome_cenario_atual
 
@@ -78,7 +79,8 @@ def main():
     hp_monstro=120
     hp_homem=100
     cont=0
-
+    i=0
+    
     print("Na hora do sufoco!")
     print("------------------")
     print()
@@ -114,9 +116,10 @@ def main():
             for k,v in opcoes.items():
                 print ('-{0}: {1}'.format(k,v))
             escolha =input("Digite a sua opção: ")
+           
             if escolha == 'biblioteca':
                 nome_cenario_atual='biblioteca'
-                print (titulo1(nome_cenario_atual))
+                titulo1(nome_cenario_atual)
 
                 #escolha = input ("Digite a sua opção: ")
                 print('Aqui se encontra um teleporte que te lev4rá aos armários, você têm duas opções:')
@@ -134,7 +137,7 @@ def main():
                         game_over=True
                     else:
                         print('Você não contém a chave para o elevador! Procure a chave pelas salas.')
-                        nome_cenario_atual='saguao'
+                        nome_cenario_atual='Saguão'
                 elif opc == '1':
                     print ( 'Se você recusar essa chance, você será perderá seus iten e voltará para o ínicio!!!')
                     sorteio = input('Você deseja iniciar o sorteio? (Sim/Não): ')
@@ -145,13 +148,17 @@ def main():
                             numero_chute = int(input('Eai??? Qual o seu chute ?: '))
 
                             if numero_chute == numero_sorteio:
-                                print ('Você ganhou e foi teleportado para a sala dos armarios')
+                                print ('Você ganhou e está sendo teleportado para a sala dos armários')
+                                print ('loading...')
+                                sleep(5)
                                 linha()
-                                cenario_atual="armario"
+                                cenario_atual="armário"
                                 break
                             else:
-                                print('''Você errou o número sorteado, e voltou para o saguão inicial''')
-                                nome_cenario_atual='saguao'
+                                print('Você errou o número sorteado, e voltou para o saguão inicial')
+                                print ()
+                                nome_cenario_atual='Saguão'
+                                del lista_inventario[:]
                                 break
                         elif sorteio == 'Não':
                             print('Que pena, você desistiu do sorteio. Mas agora você têm uma nova missão para adiar seu EP, sem mais enrolações, agora ache a chave do elevador. Boa Sorte!!!')
@@ -168,10 +175,10 @@ def main():
                 if escolha!= opcoes:
                     escolha=input('Não existe essa opção. Escreva uma nova: ')
 
-            if cenario_atual=='armario':
-                print(cenarios['armario']['titulo'])
-                print('-' * len(cenarios['armario']['titulo']))
-                print(cenarios['armario']['descricao'])
+            if cenario_atual=='armário':
+                print(cenarios['armário']['titulo'])
+                print('-' * len(cenarios['armário']['titulo']))
+                print(cenarios['armário']['descricao'])
                 resp=input('Qual a sua resposta: ')
                 print()
 
@@ -182,39 +189,76 @@ def main():
                     print ()
 
             if escolha=='sala do professor':
-                nome_cenario_atual='sala do professor'
-                print (titulo1(nome_cenario_atual))
-                senha=input('Qual a senha? Obs: A senha está espalhada ao longo do diálogo do jogo!!!: ')
-                print ()
-
-                if senha == '143' or senha=='341' or senha=='413' or senha=='431' or senha=='134' or senha=='314':
-                    print('Parabéns, você acertou a senha. Agora foi adicionada a chave ao seu inverntário.')
-                    print('Sua recompença além da chave é uma arma a qual você pode escolher.')
-                    print('Após a escolha da arma você voltará para o saguão.')
-                    arma=input('Escolha uma dessas armas: Espada laser, Espada de madeira, Cajado: ')
-                    lista_inventario.append(arma)
-                    nome_cenario_atual='saguao'
+                if i==0:
+                    nome_cenario_atual='sala do professor'
+                    print (titulo1(nome_cenario_atual))
+                    print()
+                    print ('A senha está espalhada ao longo do diálogo')
+                    print ('Se você negar a tentativa de senha, voltará ao saguão')
+                    a=input('Você deseja tentar a senha??? Se você errar, perderá TUDO!!! Responda com Sim ou Não: ')
+                    if a=='Sim':
+                        senha=input('Qual a senha?: ')
+                        print ()
+                        if senha == '143' or senha=='341' or senha=='413' or senha=='431' or senha=='134' or senha=='314':
+                            print('Parabéns, você acertou a senha. Agora foi adicionada a chave ao seu inverntário.')
+                            print('Sua recompença além da chave é uma arma a qual você pode escolher.')
+                            print('Após a escolha da arma você voltará para o saguão.')
+                            arma=input('Escolha uma dessas armas: Espada laser, Espada de madeira, Cajado: ')
+                            lista_inventario.append(arma)
+                            print ('Agora você possui um/uma {}'.format(arma))
+                            sleep(4)
+                            i+=1
+                            nome_cenario_atual='Saguão'
+                        else:
+                            print('Que pena você errou a senha.')
+                            print('Procure a senha nas salas!!!'/n)
+                            print ('Teleportando')
+                            sleep(3)
+                            nome_cenario_atual = 'Saguão'
+                            del lista_inventario[:]
+                                                
+                    elif a=='Não':
+                        print('Você será teleportado para o saguão em alguns segundos.')
+                        print('Teleportando...')
+                        sleep(5)
+                        nome_cenario_atual='Saguão'
+                    
+                    else:
+                        print('Não existe essa opção, tente digitar novamente')
+                        a=input('Qual a sua escolha?: ')
                 else:
-                    print('Que pena você errou a senha.')
-                    print('Procure a senha nas salas!!!')
-                    escolha = 'saguao'
+                    print('Você já conseguiu a espada de sua escolha, agora vá procurar a chave pelo Insper para conseguir adiar seu EP.')
+                    print('Teleportando de volta ao saguão...')
+                    sleep(3)
+                    
             if escolha == 'fab lab':
                 nome_cenario_atual='fab lab'
                 print (titulo1(nome_cenario_atual))
 
                 if cont==0:
-                    print('Você agora terá que lutar contra o monstro do acrílico')
+                    print('Você agora terá que lutar contra o monstro dos retalhos')
                     print ('Este monstro é famoso por sua velocidade. Cuidado!!!')
                     print ('O monstro corre em direção a você, o que você faz?')
-                    acao=input('Correr do monstro / Bater no monstro')
+                    acao=input('Correr do monstro / Bater no monstro: ')
                     
                     print ()
                     if acao == 'Correr do monstro':
-                        print('Você fugiu para o saguão!')
-                        escolha = 'saguao'
+                        print('Você está fugindo para o saguão!\n')
+                        sleep(3)
+                        print('Despistando o monstro...\n')
+                        sleep(3)
+                        print('Ufa, você conseguiu despistar o monstro, mas parece que há algo escondido no fab lab que você precisa muito para adiar o EP')
+                        nome_cenario_atual = 'Saguão'
                     elif acao == 'Bater no monstro':
                         while hp_monstro!=0 or hp_homem==0:
-                            if arma in lista_inventario:
+                            if len(lista_inventario)==0:
+                                print ('Você não aguentou os terriveis cortes dos retalhos.')
+                                print ()
+                                print ('Quem sabe da próxima vez.(~__~)')
+                                sleep(3)
+                                nome_cenario_atual = "Saguão"
+                                break
+                            elif arma in lista_inventario:
                                 if arma=='Espada laser':
                                     ataque_homem=15
                                     hp_homem-=ataque_monstro
@@ -228,32 +272,45 @@ def main():
                                     hp_homem-=ataque_monstro
                                     hp_monstro-=ataque_homem
                                     hp_homem+=5
-                        if arma=='Cajado' and hp_monstro<=0:
-                            print ('Por você ser digno a passiva do Cajado foi ativada e você a cada ataque recuperou sua vida.')
-                            print ('Você gahhou com {} de vida'.format(hp_homem))
-                            print ()
-                            lista_inventario.append('chave')
-                            cont+=1
-                            escolha='saguao'
-                        elif arma=='Espada de madeira' and hp_monstro>=0:
-                            print ('Sua espada não foi efetiva contra o monstro. Você morreu e perdeu seus itens.')
+                            else:
+                                ataque_homem=5
+                                hp_homem-=ataque_monstro
+                                hp_monstro-=ataque_homem
+                        try:
+                            if arma=='Cajado' and hp_monstro<=0:
+                                print ('Por você ser digno a passiva do Cajado foi ativada e você a cada ataque recuperou sua vida.')
+                                print ('Você ganhou com {} de vida'.format(hp_homem))
+                                print ('Você será teleportado para o saguão em segundos')
+                                print ()
+                                lista_inventario.append('chave')
+                                cont+=1
+                                sleep(5)
+                                nome_cenario_atual='Saguão'
+                            elif arma=='Espada de madeira' and hp_monstro>=0:
+                                print ('Sua espada não foi efetiva contra o monstro. Você morreu e perdeu seus itens.')
+                                print()
+                                print ('Sinto muito. O Saguão te espera')
+                                sleep(3)
+                                del lista_inventario[:]
+                                nome_cenario_atual='Saguão'
+                            elif arma=='Espada laser' and hp_monstro<=0:
+                                print ('Você escolheu a arma mais efetiva e derrotou o monstro. Aceite essa chave.')
+                                print ()
+                                lista_inventario.append('chave')
+                                cont+=1
+                                sleep(5)
+                                nome_cenario_atual='Saguão'
+                        except UnboundLocalError:
                             print()
-                            del lista_inventario[:]
-                            nome_cenario_atual='saguao'
-                        elif arma=='Espada laser' and hp_monstro<=0:
-                            print ('Você escolheu a arma mais efetiva e derrotou o monstro. Aceite essa chave.')
-                            print ()
-                            lista_inventario.append('chave')
-                            cont+=1
-                            nome_cenario_atual='saguao'
+
                             
                     else:
-                        print('essa opcao nao existe')
+                        print('Essa opcao nao existe')
                         acao = input('O monstro corre em direção a você, o que você faz?  [Correr do monstro] | [Bater no monstro com a espada]')
-                if cont > 0:
-                    print('Você acabou de lutar com o monstro e obteve a chave do elevador, vá até lá, senão não conseguirá adiar seu EP, ')
-                    print('Você foi teleportado de volta ao saguão.')
-                    escolha = 'saguao'
+                elif cont > 0:
+                    print('Você já obteve a chave, volte para o saguão.')
+                    sleep(5)
+                    nome_cenario_atual = 'Saguão'
                                                  
                             
                     
