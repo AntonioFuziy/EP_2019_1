@@ -24,7 +24,7 @@ def carregar_cenarios():
     cenarios = {
         "Saguão": {
             "titulo": "Saguão do per1go! ",
-            "descricao": "Voce esta no saguão de entrada do Insper. ",
+            "descricao": "Voce está no saguão de entrada do Insper. ",
             "opcoes": {
                 "sala do professor": "Tomar o elevador para a sala do professor. ",
                 "biblioteca": "Ir para a biblioteca. ",
